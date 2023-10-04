@@ -1,0 +1,47 @@
+shopping_list = []
+
+# fn to show items in list
+def display_list():
+    print("Items on your list:")
+    for item in shopping_list:
+        print(item)
+
+# menu
+
+while True:
+    print(" welcome to the supermarket. here's the menu:")
+    print("1.add item to the list")
+    print("2.delete item from the list")
+    print("3.display items on the list")
+    print("4.exit")
+
+    choice = input("enter your choice: ")
+
+    if choice == '1':
+        item = input("enter the item to add: ")
+        shopping_list.append(item)
+        print(item, "added to the list.")
+
+    elif choice == '2':
+        if len(shopping_list) == 0:
+            print("the list is empty.")
+        else:
+            item = input("enter the item to delete: ")
+            if item in shopping_list:
+                shopping_list.remove(item)
+                print(item, "removed from the list.")
+            else:
+                print(item, "is not in the list.")
+
+    elif choice == '3':
+        if len(shopping_list) == 0:
+            print("the list is empty.")
+        else:
+            display_list()
+
+    elif choice == '4':
+        print("exiting the supermarket system.")
+        break
+
+    else:
+        print("invalid choice. Please select a valid option.")
